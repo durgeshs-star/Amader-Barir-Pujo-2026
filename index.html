@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#7E4555">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Amader Barir Pujo, Pune">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="description" content="Amader Barir Pujo, Pune — Discover devotional services, sacred festivals, and spiritual community programs in our alternate home layout.">
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Amader Barir Pujo, Pune">
+  <meta property="og:description" content="Amader Barir Pujo, Pune — Discover devotional services, sacred festivals, and spiritual community programs in our alternate home layout.">
+  <!-- og:image — replace with your full hosted image URL -->
+  <meta property="og:image"       content="assets/img/banner/1.webp">
+  <title>Amader Barir Pujo, Pune</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon.png">
+
+  <!-- partial:partial/__stylesheets.html -->
+  <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
+  <!-- Bootstrap 5.0->5.3 compatibility shim: load after Bootstrap, before theme styles -->
+  <link rel="stylesheet" href="assets/css/plugins/animate.min.css">
+  <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
+  <link rel="stylesheet" href="assets/css/plugins/slick.css">
+  <link rel="stylesheet" href="assets/css/plugins/slick-theme.css">
+  <link rel="stylesheet" href="assets/css/plugins/ion.rangeSlider.min.css">
+
+  <!-- Icon Fonts -->
+  <link rel="stylesheet" href="assets/fonts/flaticon/flaticon.css">
+  <link rel="stylesheet" href="assets/css/plugins/font-awesome.min.css">
+  <!-- Template Style sheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <!-- Theme color panel -->
+  <link id="mht-color-link" class="color-changing" href="assets/css/theme-colors/color1.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/mht-panel.css">
+  <link rel="stylesheet" href="assets/css/mht-v13.css">
+
+
+  <!-- partial -->
+
+  <!-- Banner hero animation (ported from landing.html) -->
+  <style>
+    /* ── Banner overflow clip ─────────────────────────────────────────────── */
+    .banner-2.sigma_banner { overflow: hidden; border-radius: 0; }
+
+    /* ── Rising gold/fire particles ───────────────────────────────────────── */
+    .mht-particles {
+      position: absolute; inset: 0;
+      pointer-events: none; overflow: hidden; z-index: 1;
+    }
+    .mht-particles span {
+      position: absolute; bottom: -10px;
+      width: 4px; height: 4px; border-radius: 50%;
+      background: rgba(201,150,58,.6);
+      animation: mht-rise var(--dur, 8s) ease-in var(--delay, 0s) infinite;
+    }
+    .mht-particles span:nth-child(1) { left: 10%; --dur: 9s;  --delay: 0s;   }
+    .mht-particles span:nth-child(2) { left: 25%; --dur: 7s;  --delay: 1.5s; width: 3px; height: 3px; }
+    .mht-particles span:nth-child(3) { left: 40%; --dur: 11s; --delay: 0.5s; }
+    .mht-particles span:nth-child(4) { left: 55%; --dur: 8s;  --delay: 2s;   width: 5px; height: 5px; background: rgba(219,66,66,.5); }
+    .mht-particles span:nth-child(5) { left: 70%; --dur: 10s; --delay: 1s;   }
+    .mht-particles span:nth-child(6) { left: 85%; --dur: 6s;  --delay: 3s;   width: 3px; height: 3px; }
+    .mht-particles span:nth-child(7) { left: 92%; --dur: 9s;  --delay: 0.8s; background: rgba(247,79,34,.4); }
+    .mht-particles span:nth-child(8) { left: 5%;  --dur: 12s; --delay: 2.5s; }
+    .mht-particles span:nth-child(odd)  { --drift:  30px; }
+    .mht-particles span:nth-child(even) { --drift: -20px; }
+
+    /* ── OM watermark ─────────────────────────────────────────────────────── */
+    .mht-hero-om {
+      position: absolute; top: 50%; right: 3%;
+      transform: translateY(-50%);
+      font-size: clamp(14rem, 28vw, 38rem);
+      color: rgba(201,150,58,.035);
+      font-family: serif; line-height: 1;
+      pointer-events: none; z-index: 1; -webkit-user-select: none; user-select: none;
+    }
+
+    /* ── Keyframes ────────────────────────────────────────────────────────── */
+    @keyframes mht-rise {
+      0%   { bottom: -10px; opacity: 0; transform: translateX(0); }
+      15%  { opacity: 1; }
+      85%  { opacity: 1; }
+      100% { bottom: 105%; opacity: 0; transform: translateX(calc(var(--drift, 30px))); }
+    }
+
+    /* ── Respect reduced-motion preference ───────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .mht-particles span { animation: none; }
+    }
+
+    /* ── Header nav: hover & active colours ──────────────────────────────── */
+    .sigma_header-inner .navbar-nav > .menu-item > a,
+    .sigma_header-middle .navbar > .navbar-nav > .menu-item > a {
+      transition: color .25s ease;
+    }
+    .sigma_header-inner .navbar-nav > .menu-item > a:hover,
+    .sigma_header-middle .navbar > .navbar-nav > .menu-item > a:hover {
+      color: #7E4555;
+    }
+    .sigma_header-inner .navbar-nav > .menu-item.current-menu-item > a,
+    .sigma_header-middle .navbar > .navbar-nav > .menu-item.current-menu-item > a,
+    .sigma_header-inner .navbar-nav > .menu-item > a.active,
+    .sigma_header-middle .navbar > .navbar-nav > .menu-item > a.active {
+      color: #db4242;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- <a class="skip-link" href="#main-content">Skip to main content</a> -->
+  <!-- Preloader Start -->
+  <div class="sigma_preloader">
+    <img width="414" height="414" src="assets/img/maa-1.png" alt="preloader" loading="lazy">
+  </div>
+  <!-- Preloader End -->
+
+   <!-- partial:partia/__mobile-nav.html -->
+  <aside class="sigma_aside sigma_aside-left">
+
+    <a class="navbar-brand" href="index.html"> <img width="208" height="60" src="assets/img/Logo-puja.png" alt="logo" loading="lazy"> </a>
+
+    <!-- Menu -->
+    <ul>
+          <li class="menu-item menu-item-has-children">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="menu-item menu-item-has-children">
+            <a href="about-us.html">About</a>
+           
+          </li>
+          <li class="menu-item menu-item-has-children">
+            <a href="#">Puja Schedule</a>
+            <ul class="sub-menu">
+              <li class="menu-item"> <a href="panchami.html">Panchami</a> </li>
+               <li class="menu-item"> <a href="shashti.html">Shashti</a> </li>             
+              <li class="menu-item"> <a href="saptami.html">Saptami</a> </li>
+              <li class="menu-item"> <a href="ashtami.html">Ashtami</a> </li>
+              <li class="menu-item"> <a href="navami.html">Navami</a> </li>
+               <li class="menu-item"> <a href="dashami.html">Dashami</a> </li>
+               <li class="menu-item"> <a href="lakshmi-puja.html">Lakshmi Puja</a> </li>
+            </ul>
+          </li>
+          <li class="menu-item menu-item-has-children">
+            <a href="#">Bhog Booking</a>
+            <ul class="sub-menu">
+             <li class="menu-item"> <a href="saptami-bhog.html">Saptami</a> </li>
+             <li class="menu-item"> <a href="ashtami-bhog.html">Ashtami</a> </li>
+             <li class="menu-item"> <a href="navami-bhog.html">Navami</a> </li>
+              <li class="menu-item"> <a href="lakshmi-puja.html">Lakshmi Puja</a> </li>
+           </ul>
+         </li>
+         <li class="menu-item menu-item-has-children">
+            <a href="gallery.html">Gallery</a>
+          </li>
+          <li class="menu-item">
+            <a href="anudan.html">Anudan</a>
+             <!-- <ul class="sub-menu">
+             <li class="menu-item"> <a href="anudan.html">Anudan</a> </li>
+             <li class="menu-item"> <a href="volunteer.html">For a Volunteer</a> </li>
+            
+           </ul> -->
+         </li>
+         <li class="menu-item menu-item-has-children">
+          <a href="contact-us.html">Contact</a>
+         
+       </li>
+      
+    </ul>
+
+  </aside>
+  <div class="sigma_aside-overlay aside-trigger-left"></div>
+  <!-- partial -->
+
+  <!-- partial:partia/__header.html -->
+  <header class="sigma_header header-3 can-sticky header-absolute">
+
+    <!-- Middle Header Start -->
+    <div class="sigma_header-middle">
+      <nav class="navbar" role="navigation" aria-label="Primary">
+
+        <!-- Logo Start -->
+        <div class="sigma_logo-wrapper">
+          <a class="navbar-brand" href="index.html">
+            <img width="108" height="60" src="assets/img/Logo-puja.png" alt="logo" loading="lazy">
+          </a>
+        </div>
+        <!-- Logo End -->
+
+        <!-- Menu -->
+        <div class="sigma_header-inner">
+          <div class="sigma_header-top">
+            <div class="sigma_header-top-inner">
+              <ul class="sigma_header-top-links">
+                <li class="menu-item"> <a href="tel:+123456789"> <i class="fal fa-phone"></i> (+123) 123 4567 890</a> </li>
+                <li class="menu-item"> <a href="mailto:info@abp.proplusdatafoundation.com"> <i class="fal fa-envelope"></i> info@abp.proplusdatafoundation.com</a> </li>
+              </ul>
+          
+              <ul class="sigma_sm square light">
+          <li>
+            <a href="https://www.facebook.com/people/Amader-Barir-Pujo/61571741439510/" aria-label="Facebook">
+              <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+          <li>
+            <a href="https://www.instagram.com/abp_pune?igsh=YTZtZHVuODQxNWhj" aria-label="Instagram">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center justify-content-lg-between">
+            <ul class="navbar-nav">
+              <li class="menu-item">
+                <a href="index.html">Home</a>
+              </li>
+              <li class="menu-item"> <a href="about-us.html">About</a> </li>
+              <li class="menu-item menu-item-has-children">
+                <a href="#">Puja Schedule</a>
+                <ul class="sub-menu">
+                  <li class="menu-item"><a href="panchami.html">Panchami</a></li>
+                  <li class="menu-item"> <a href="shashti.html">Shashti</a> </li>
+                  <li class="menu-item"><a href="saptami.html">Saptami</a></li>
+                  <li class="menu-item"> <a href="ashtami.html">Ashtami</a> </li>
+                  <li class="menu-item"> <a href="navami.html">Navami</a> </li>
+                  <li class="menu-item"> <a href="dashami.html">Dashami</a> </li>
+                   <li class="menu-item"> <a href="lakshmi-puja.html">Lakshmi Puja</a> </li>
+                </ul>
+              </li>
+              <li class="menu-item menu-item-has-children">
+                <a href="#">Bhog Booking</a>
+            <ul class="sub-menu">
+             <li class="menu-item"> <a href="saptami-bhog.html">Saptami</a> </li>
+             <li class="menu-item"> <a href="ashtami-bhog.html">Ashtami</a> </li>
+             <li class="menu-item"> <a href="navami-bhog.html">Navami</a> </li>
+                   <li class="menu-item"> <a href="lakshmi-puja.html">Lakshmi Puja</a> </li>
+                 
+                </ul>
+              </li>
+              <li class="menu-item ">
+                <a href="gallery.html">Gallery</a>
+              </li>
+              <li class="menu-item">
+                <a href="anudan.html">Anudan</a>
+                <!-- <ul class="sub-menu">
+                     <li class="menu-item"> <a href="anudan.html">Anudan</a> </li>
+                  <li class="menu-item"> <a href="volunteer.html">For a Volunteer</a> </li>
+                 
+                </ul> -->
+              </li>
+             
+              <li class="menu-item">
+                <a href="contact-us.html">Contact</a>
+              </li>
+            </ul>
+            <div class="sigma_header-controls style-2 p-0 border-0">
+            <ul class="sigma_header-controls-inner pe-3">
+
+              <!-- <li class="sigma_header-cart style-2">
+                <a href="cart.html"> <i class="fal fa-shopping-bag"></i> </a>
+                <span class="number">1</span>
+                <ul class="cart-dropdown">
+                  <li>
+                    <a href="#" class="sigma_cart-product-wrapper">
+                      <img width="250" height="250" src="assets/img/products/1.webp" alt="prod1" loading="lazy">
+                      <div class="sigma_cart-product-body">
+                        <h6>Gita Book</h6>
+                        <div class="sigma_product-price justify-content-start">
+                          <span>29$</span>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="sigma_cart-product-wrapper">
+                      <img width="250" height="250" src="assets/img/products/5.webp" alt="prod1" loading="lazy">
+                      <div class="sigma_cart-product-body">
+                        <h6>Ramayana Book</h6>
+                        <div class="sigma_product-price justify-content-start">
+                          <span>35$</span>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="sigma_cart-product-wrapper">
+                      <img width="250" height="250" src="assets/img/products/4.webp" alt="prod1" loading="lazy">
+                      <div class="sigma_cart-product-body">
+                        <h6>Mahabharat Book</h6>
+                        <div class="sigma_product-price justify-content-start">
+                          <span>50$</span>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="sigma_header-wishlist style-2">
+                <a href="wishlist.html"> <i class="fal fa-heart"></i> </a>
+                <ul class="cart-dropdown">
+                  <li>
+                    <p class="mb-0">You don't have any items</p>
+                  </li>
+                </ul>
+              </li> -->
+            </ul>
+             <!-- Button & Phone -->
+        <div class="sigma_header-controls sigma_header-button">
+          
+          <a class="sigma_btn-custom sigma_btn-donate" href="volunteer.html">Volunteer</a>
+        </div>
+          </div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+
+      </nav>
+    </div>
+    <!-- Middle Header End -->
+
+  </header>
+  <main id="main-content">
+  <!-- partial -->
+
+  <!-- Banner Start -->
+  <div class="sigma_banner banner-3">
+
+    <div class="sigma_banner-slider">
+
+      <!-- Banner Item Start -->
+      <div class="light-bg sigma_banner-slider-inner bg-cover bg-center bg-norepeat" style="background-image: url('assets/img/banner/banner-4.png');">
+        <div class="sigma_banner-text">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <h1 class="title">Amader Barir Pujo 2026</h1>
+                <p class="blockquote mb-0 bg-transparent"> Experience the spirit of Durga Puja with devotion, culture, tradition, and togetherness. Join us in celebrating Maa Durga through vibrant festivities, cultural programs, dhunuchi dance, bhog distribution, and community bonding. </p>
+                <!-- <div class="section-button d-flex align-items-center">
+                  <a href="contact-us.html" class="sigma_btn-custom">Join Today <i class="far fa-arrow-right"></i> </a>
+                  <a href="services.html" class="ms-3 sigma_btn-custom white">View Services <i class="far fa-arrow-right"></i> </a>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Banner Item End -->
+
+      <!-- Banner Item Start -->
+      <div class="light-bg sigma_banner-slider-inner bg-cover bg-center bg-norepeat" style="background-image: url('assets/img/banner/banner-5.png');">
+        <div class="sigma_banner-text">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <h1 class="title">Sharodiya Durga Puja</h1>
+                <p class="blockquote mb-0 bg-transparent"> Celebrate the divine arrival of Maa Durga with joy, devotion, and cultural heritage. From mesmerizing pandal decorations to soulful prayers and festive gatherings, Amader Bari Pujo brings the community together in the spirit of Shakti and celebration. </p>
+                <!-- <div class="section-button d-flex align-items-center">
+                  <a href="contact-us.html" class="sigma_btn-custom">Join Today <i class="far fa-arrow-right"></i> </a>
+                  <a href="services.html" class="ms-3 sigma_btn-custom white">View Services <i class="far fa-arrow-right"></i> </a>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Banner Item End -->
+
+    </div>
+
+  </div>
+  <!-- Banner End -->
+
+  <!-- Holis Start -->
+  <!-- <div class="section section-padding tirtery-bg">
+    <div class="container">
+      <div class="row sigma_sermon-box-wrapper">
+        <div class="col-lg-6">
+          <div class="sigma_sermon-box">
+            <div class="sigma_box">
+              <span class="subtitle">Next Event</span>
+              <h4 class="title mb-0">
+                <a href="event-details.html">Which is the same as saying</a>
+              </h4>
+              <div class="sigma_sermon-info">
+                <div class="sigma_sermon-date">
+                  <span>20</span>
+                  Aug'21
+                </div>
+                <ul class="sigma_sermon-descr m-0">
+                  <li>
+                    <i class="far fa-clock"></i>
+                    Sunday 8:00 - 9:00 am
+                  </li>
+                  <li>
+                    <i class="far fa-map-marker-alt"></i>
+                    56 Thatcher Avenue River Forest Chicago, IL United <br>States
+                  </li>
+                </ul>
+              </div>
+              <div class="section-button d-flex align-items-center">
+                <a href="event-details.html" class="sigma_btn-custom secondary">Join Now <i class="far fa-arrow-right"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-lg-6">
+          <div class="sigma_sermon-box">
+            <div class="sigma_box">
+              <span class="subtitle">Next Event</span>
+              <h4 class="title mb-0">
+                <a href="event-details.html">Which is the same as saying</a>
+              </h4>
+              <div class="sigma_sermon-info">
+                <div class="sigma_sermon-date">
+                  <span>20</span>
+                  Aug'21
+                </div>
+                <ul class="sigma_sermon-descr m-0">
+                  <li>
+                    <i class="far fa-clock"></i>
+                    Sunday 8:00 - 9:00 am
+                  </li>
+                  <li>
+                    <i class="far fa-map-marker-alt"></i>
+                    56 Thatcher Avenue River Forest Chicago, IL United <br>States
+                  </li>
+                </ul>
+              </div>
+              <div class="section-button d-flex align-items-center">
+                <a href="event-details.html" class="sigma_btn-custom secondary">Join Now <i class="far fa-arrow-right"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- Holis End -->
+
+  <!-- Icons Start -->
+  <div class="section section-padding">
+    <div class="container">
+      <div class="section-title section-title-2 text-center wow fadeInUp" data-wow-duration="0.7s">
+        <p class="subtitle">Our Celebrations</p>
+        <h4 class="title">Experience The Spirit Of <br>Durga Puja</h4>
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="sigma_icon-block icon-block-2">
+            <div class="icon-wrapper">
+               <img src="assets/img/icons/woman.png" alt="puja" width="90" height="90"> 
+            </div>
+            <div class="sigma_icon-block-content">
+              <h5> Cultural Programs </h5>
+              <p>Enjoy mesmerizing cultural evenings featuring dance performances, traditional Bengali music, drama, and community celebrations during the festive days of Durga Puja.</p>
+              <i class="far fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="sigma_icon-block icon-block-2">
+            <div class="icon-wrapper">
+            <img src="assets/img/icons/meal.png" alt="puja" width="70" height="70">  
+            </div>
+            <div class="sigma_icon-block-content">
+              <h5>Prasad</h5>
+              <p>Join us for traditional Durga Puja bhog served with love and devotion.
+Experience togetherness, warmth, and the spirit of Bengali culture with the entire community.</p>
+              <i class="far fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="sigma_icon-block icon-block-2">
+            <div class="icon-wrapper">
+            <img src="assets/img/icons/lotus-1.png" alt="puja" width="70" height="70">  
+            </div>
+            <div class="sigma_icon-block-content">
+              <h5> Sacred Puja Rituals </h5>
+              <p>Participate in the divine rituals of Bodhon, Pushpanjali, Sandhi Puja,
+and Sindoor Khela as we celebrate the arrival of Maa Durga with devotion and spirituality.</p>
+              <i class="far fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="sigma_icon-block icon-block-2">
+            <div class="icon-wrapper">
+             <img src="assets/img/icons/volunteer.png" alt="puja" width="70" height="70"> 
+            </div>
+            <div class="sigma_icon-block-content">
+              <h5> Community & Volunteers </h5>
+              <p>Amader Bari Pujo is powered by passionate volunteers and community members
+who come together every year to preserve traditions and create unforgettable festive memories.</p>
+              <i class="far fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <!-- Icons End -->
+
+   <!-- Donation Start -->
+
+   <div class="section section-padding pt-0">
+    <div class="container">
+      <div class="section-title text-center wow fadeInUp" data-wow-duration="0.7s">
+        
+        <h4 class="title">Puja Days</h4>
+      </div>
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6">
+          <div class="sigma_service style-2">
+            <div class="sigma_service-thumb">
+              <img width="414" height="171" src="assets/img/donation/mahalaya.webp" alt="img" loading="lazy">
+            </div>
+            <div class="sigma_service-body">
+              <h5>
+                <a href="donation.html">Mahalaya | 15 October</a>
+              </h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="sigma_service style-2">
+            <div class="sigma_service-thumb">
+              <img width="414" height="171" src="assets/img/donation/sasthi.jpg" alt="img" loading="lazy">
+            </div>
+            <div class="sigma_service-body">
+              <h5>
+                <a href="donation.html">Maha Shashti | 16 October</a>
+              </h5>  
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="sigma_service style-2">
+            <div class="sigma_service-thumb">
+              <img width="414" height="171" src="assets/img/donation/saptam.jpg" alt="img" loading="lazy">
+            </div>
+            <div class="sigma_service-body">
+              <h5>
+                <a href="donation.html">Maha Saptami | 17 October</a>
+              </h5>
+              
+            </div>
+          </div>
+        </div>
+
+      </div>
+       <div class="row">
+
+        <div class="col-lg-4 col-md-6">
+          <div class="sigma_service style-2">
+            <div class="sigma_service-thumb">
+              <img width="414" height="171" src="assets/img/donation/ashtami.jpg" alt="img" loading="lazy">
+            </div>
+            <div class="sigma_service-body">
+              <h5>
+                <a href="donation.html">Maha Ashtami | 18 October</a>
+              </h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="sigma_service style-2">
+            <div class="sigma_service-thumb">
+              <img width="414" height="171" src="assets/img/donation/navami.jpg" alt="img" loading="lazy">
+            </div>
+            <div class="sigma_service-body">
+              <h5>
+                <a href="donation.html">Maha Navami | 19 October</a>
+              </h5>  
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="sigma_service style-2">
+            <div class="sigma_service-thumb">
+              <img width="414" height="171" src="assets/img/donation/dashami.png" alt="img" loading="lazy">
+            </div>
+            <div class="sigma_service-body">
+              <h5>
+                <a href="donation.html">Maha Dashami | 20 October</a>
+              </h5>
+              
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Donation End -->
+  <!-- About Start -->
+  <!-- <section class="section section-md light-bg">
+    <div class="container">
+
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-lg-30">
+          <div class="section-title section-title-2 text-start wow fadeInUp" data-wow-duration="0.7s">
+            <p class="subtitle">About Us</p>
+            <h4 class="title">We are a Hindu that believe in Ram</h4>
+            <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure</p>
+          </div>
+          <div class="d-flex align-items-center mt-5">
+            <div class="sigma_round-button me-4 sm">
+              <span> <b class="counter" data-to="75" data-from="0">0</b> <span class="custom-primary">%</span> </span>
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 197 197" enable-background="new 0 0 197 197" xml:space="preserve">
+                <circle class="sigma_round-button-stroke" stroke-linecap="round" cx="98.5" cy="98.6" r="97.5"></circle>
+                <circle data-to="290" class="sigma_progress-round sigma_round-button-circle" stroke-linecap="round" cx="98.5" cy="98.6" r="97.5"></circle>
+              </svg>
+            </div>
+            <div>
+              <h5 class="mb-2">Hindu Community</h5>
+              <p class="mb-0">If money help a man to do well to others, it is of some value; but if not, it is simply a mass of evil, and the sooner</p>
+            </div>
+          </div>
+          <div class="d-flex align-items-center mt-5">
+            <div class="sigma_round-button me-4 sm">
+              <span> <b class="counter" data-to="50" data-from="0">0</b> <span class="custom-secondary">%</span> </span>
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 197 197" enable-background="new 0 0 197 197" xml:space="preserve">
+                <circle class="sigma_round-button-stroke" stroke-linecap="round" cx="98.5" cy="98.6" r="97.5"></circle>
+                <circle data-to="400" class="sigma_progress-round sigma_round-button-circle secondary" stroke-linecap="round" cx="98.5" cy="98.6" r="97.5"></circle>
+              </svg>
+            </div>
+            <div>
+              <h5 class="mb-2">Active Members</h5>
+              <p class="mb-0">If money help a man to do well to others, it is of some value; but if not, it is simply a mass of evil, and the sooner</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 d-none d-lg-block">
+          <div class="me-lg-30 img-group-2">
+            <img width="417" height="340" src="assets/img/about-group2/1.webp" alt="about" loading="lazy">
+            <img width="341" height="340" src="assets/img/about-group2/2.webp" alt="about" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section> -->
+  <!-- About End -->
+
+  <!-- Testimonials Start -->
+  <section class="section pt-0">
+
+    <div class="container testimonial-section bg-contain bg-norepeat bg-center">
+
+      <div class="section-title text-center wow fadeInUp" data-wow-duration="0.7s">
+        <p class="subtitle">Testimonials</p>
+        <h4 class="title">What Our Devotees Say</h4>
+      </div>
+
+      <div class="sigma_testimonial style-2">
+        <div class="sigma_testimonial-slider">
+
+          <div class="sigma_testimonial-inner">
+            <div class="sigma_testimonial-thumb">
+              <img width="270" height="280" src="assets/img/testimonials/boy.png" alt="testimonial" loading="lazy">
+            </div>
+            <div>
+              <div class="sigma_testimonial-body">
+                <div class="sigma_rating-wrapper">
+                  <div class="sigma_rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                </div>
+                <p>The daily aartis were breathtaking! The devotion and energy were palpable, making me feel so
+                  connected to Maa Durga.</p>
+              </div>
+              <div class="sigma_testimonial-footer">
+                <div class="sigma_testimonial-author">
+                  <cite>Rajesh Singh</cite>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sigma_testimonial-inner">
+            <div class="sigma_testimonial-thumb">
+              <img width="270" height="280" src="assets/img/testimonials/girl.png" alt="testimonial" loading="lazy">
+            </div>
+            <div>
+              <div class="sigma_testimonial-body">
+                <div class="sigma_rating-wrapper">
+                  <div class="sigma_rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                </div>
+                <p>A truly divine experience! The atmosphere during Durga Puja was magical, and the rituals were
+                  performed beautifully. Can't wait for next year!</p>
+              </div>
+              <div class="sigma_testimonial-footer">
+                <div class="sigma_testimonial-author">
+                  <cite>Sneha Gupta</cite>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sigma_testimonial-inner">
+            <div class="sigma_testimonial-thumb">
+              <img width="270" height="280" src="assets/img/testimonials/boy.png" alt="testimonial" loading="lazy">
+            </div>
+            <div>
+              <div class="sigma_testimonial-body">
+                <div class="sigma_rating-wrapper">
+                  <div class="sigma_rating">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                </div>
+                <p>The sense of community here is unmatched. Celebrating with family and friends made it all the more
+                  special. Thank you for a wonderful celebration!</p>
+              </div>
+              <div class="sigma_testimonial-footer">
+                <div class="sigma_testimonial-author">
+                  <cite>Mukesh Singh</cite>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <div class="sigma_arrows style-2">
+          <i class="far fa-chevron-left slick-arrow slider-prev"></i>
+          <i class="far fa-chevron-right slick-arrow slider-next"></i>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- Testimonials End -->
+  
+
+  <!-- partial:partia/__footer.html -->
+  </main>
+  <footer class="sigma_footer footer-2">
+
+    <!-- Middle Footer -->
+    <div class="sigma_footer-middle">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 footer-widget">
+            <h5 class="widget-title">About Us</h5>
+            <p class="mb-4">Join us in the grand celebration of Durga Puja—experience devotion, joy, and togetherness! </p>
+            <div class="d-flex align-items-center justify-content-md-start justify-content-center">
+              <i class="far fa-phone custom-primary me-3"></i>
+              <span>987-987-930-302</span>
+            </div>
+            <div class="d-flex align-items-center justify-content-md-start justify-content-center mt-2">
+              <i class="far fa-envelope custom-primary me-3"></i>
+              <span>info@abp.proplusdatafoundation.com</span>
+            </div>
+            <div class="d-flex align-items-center justify-content-md-start justify-content-center mt-2">
+              <i class="far fa-map-marker custom-primary me-3"></i>
+              <span>Wakad, Pune, Pimpri-Chinchwad, Maharashtra 411057</span>
+            </div>
+          </div>
+          <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12 footer-widget">
+            <h5 class="widget-title">Information</h5>
+            <ul>
+              <li> <a href="puja.html">Puja Schedule</a> </li>
+              <li> <a href="about-us.html">About Us</a> </li>
+             
+              <li> <a href="volunteer.html">Volunteers</a> </li>
+              
+            </ul>
+          </div>
+          <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12 footer-widget">
+            <h5 class="widget-title">Others</h5>
+            <ul>
+             
+              <li> <a href="gallery.html">Gallery</a> </li>
+              <li> <a href="contact-us.html">Contact Us</a> </li>
+              <li> <a href="terms-and-conditions.html">Terms & Conditions</a> </li>
+              <li> <a href="privacy-policy.html">Privacy Policy</a> </li>
+            </ul>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-3 col-sm-12 d-none d-lg-block footer-widget widget-recent-posts">
+            <h5 class="widget-title">Recent Posts</h5>
+            <article class="sigma_recent-post">
+              <a href="blog-details.html"><img width="80" height="60" src="assets/img/blog/sm/1.webp" alt="post" loading="lazy"></a>
+              <div class="sigma_recent-post-body">
+                <a href="blog-details.html"> <i class="far fa-calendar"></i> May 20, 2026</a>
+                <h6> <a href="blog-details.html">As we've all discovered by now, the world can change</a> </h6>
+              </div>
+            </article>
+            <article class="sigma_recent-post">
+              <a href="blog-details.html"><img width="80" height="60" src="assets/img/blog/sm/2.webp" alt="post" loading="lazy"></a>
+              <div class="sigma_recent-post-body">
+                <a href="blog-details.html"> <i class="far fa-calendar"></i> May 20, 2026</a>
+                <h6> <a href="blog-details.html">Testimony love offering so blessed</a> </h6>
+              </div>
+            </article>
+            <article class="sigma_recent-post">
+              <a href="blog-details.html"><img width="80" height="60" src="assets/img/blog/sm/3.webp" alt="post" loading="lazy"></a>
+              <div class="sigma_recent-post-body">
+                <a href="blog-details.html"> <i class="far fa-calendar"></i> May 20, 2026</a>
+                <h6> <a href="blog-details.html">As we've all discovered by now, the world can change</a> </h6>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="sigma_footer-bottom">
+      <div class="container-fluid">
+        <div class="sigma_footer-copyright">
+          <p> Copyright © Amader Barir Pujo - <a href="#" class="custom-primary">2026</a> </p>
+        </div>
+        <div class="sigma_footer-logo">
+          <img width="108" height="60" src="assets/img/Logo-puja.png" alt="logo" loading="lazy">
+        </div>
+        <ul class="sigma_sm square light">
+          <li>
+            <a href="https://www.facebook.com/people/Amader-Barir-Pujo/61571741439510/" aria-label="Facebook">
+              <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+          </li>
+         
+          <li>
+            <a href="https://www.instagram.com/abp_pune?igsh=YTZtZHVuODQxNWhj" aria-label="Instagram">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </footer>
+  <!-- partial -->
+
+  <!-- partial:partia/__scripts.html -->
+  <script src="assets/js/plugins/jquery-3.4.1.min.js"></script>
+  <script src="assets/js/plugins/popper.min.js"></script>
+  <script src="assets/js/plugins/bootstrap.min.js"></script>
+  <script src="assets/js/plugins/imagesloaded.min.js"></script>
+  <script src="assets/js/plugins/jquery.magnific-popup.min.js"></script>
+  <script src="assets/js/plugins/jquery.countdown.min.js"></script>
+  <script src="assets/js/plugins/jquery.waypoints.min.js"></script>
+  <script src="assets/js/plugins/jquery.counterup.min.js"></script>
+  <script src="assets/js/plugins/jquery.zoom.min.js"></script>
+  <script src="assets/js/plugins/jquery.inview.min.js"></script>
+  <script src="assets/js/plugins/wow.min.js"></script>
+  <script src="assets/js/plugins/isotope.pkgd.min.js"></script>
+  <script src="assets/js/plugins/slick.min.js"></script>
+  <script src="assets/js/plugins/ion.rangeSlider.min.js"></script>
+  <script src="assets/js/plugins/audio_custome.js"></script>
+
+  <script src="assets/js/main.js"></script>
+  <!-- partial -->
+
+  <!-- ── WhatsApp Float Button ───── -->
+   <a class="mht-whatsapp-btn mht-wa-disabled"
+     href="#"
+     title="WhatsApp — add your number to activate"
+     aria-label="WhatsApp not yet configured">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a> 
+
+
+  <!-- Back To Top Start -->
+  <div class="sigma_top style-5">
+    <i class="far fa-angle-double-up"></i>
+  </div>
+  <!-- Back To Top End -->
+
+  
+  <script src="assets/js/festival.js"></script>
+
+</body>
+
+</html>
+
+
+
