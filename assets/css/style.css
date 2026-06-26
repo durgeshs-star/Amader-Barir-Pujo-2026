@@ -1566,15 +1566,14 @@ small {
 
 .blockquote,
 blockquote {
-  position: relative;
   margin: 20px 0;
   font-size: 16px;
   color: var(--mht-accent);
-  padding: 10px 30px;
+  /* padding: 10px 30px; */
   background-position: center;
   background-size: cover;
   background-color: #f7f7f7;
-  border-left: 2px solid var(--mht-primary);
+  /* border-left: 2px solid var(--mht-primary); */
 }
 
 p.blockquote:before,
@@ -10328,6 +10327,10 @@ animation-play-state: paused;
 .sigma_banner .sigma_banner-text {
   position: relative;
   z-index: 2;
+}
+.sigma_banner-text,
+.sigma_banner-text * {
+    text-shadow: none !important;
 }
 .sigma_banner .title {
   text-shadow: 0 2px 12px rgba(0,0,0,.45);
