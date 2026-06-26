@@ -41,6 +41,7 @@
   <link id="mht-color-link" class="color-changing" href="assets/css/theme-colors/color1.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/mht-panel.css">
   <link rel="stylesheet" href="assets/css/mht-v13.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 
 
   <!-- partial -->
@@ -95,7 +96,126 @@
       .mht-particles span { animation: none; }
     }
 
-    /* ── Header nav: hover & active colours ──────────────────────────────── */
+    /* ── Hamburger button ─────────────────────────────────────────────────── */
+    /* Hide mobile controls on desktop */
+    .sigma_mobile-controls {
+      display: none;
+    }
+    .aside-toggler.aside-trigger-left {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      background: rgba(126, 69, 85, 0.85);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+      flex-shrink: 0;
+    }
+    /* The overlay div also carries aside-trigger-left — make sure it is never treated as a button */
+    div.sigma_aside-overlay.aside-trigger-left {
+      background: rgba(0,0,0,0.7) !important;
+      border-radius: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      padding: 0 !important;
+      gap: 0 !important;
+      flex-direction: row !important;
+    }
+    .aside-toggler.aside-trigger-left span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: #fff;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+    }
+    /* Animated X state */
+    .aside-toggler.aside-trigger-left.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .aside-toggler.aside-trigger-left.open span:nth-child(2) {
+      opacity: 0;
+      width: 0;
+    }
+    .aside-toggler.aside-trigger-left.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+    @media (max-width: 991px) {
+      button.aside-toggler.aside-trigger-left {
+        display: flex;
+      }
+      /* Logo left, controls right — align to top so both sit near logo top */
+      .sigma_header-middle .navbar {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 12px 16px 12px 15px;
+      }
+      /* Mobile controls: push down a little, gap from right edge */
+      .sigma_mobile-controls {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 8px;
+        flex-shrink: 0;
+        padding-top: 6px;
+        padding-right: 4px;
+      }
+      .sigma_mobile-volunteer {
+        display: inline-block;
+        font-size: 12px;
+        padding: 6px 16px;
+        white-space: nowrap;
+      }
+      /* Hide desktop nav inner block */
+      .sigma_header-inner {
+        display: none;
+      }
+      .sigma_logo-wrapper {
+        flex-shrink: 0;
+      }
+    }
+
+    /* ── Aside panel header (logo + close button) ────────────────────────── */
+    .sigma_aside-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 15px;
+      border-bottom: 1px solid #efefef;
+      margin-bottom: 8px;
+    }
+    .sigma_aside-header .navbar-brand {
+      padding: 0;
+      margin: 0;
+      width: auto;
+    }
+    .sigma_aside-close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: #f7f7f7;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      color: #3d1f2f;
+      transition: background 0.2s, color 0.2s;
+      flex-shrink: 0;
+    }
+    .sigma_aside-close:hover {
+      background: #7E4555;
+      color: #fff;
+    }
     .sigma_header-inner .navbar-nav > .menu-item > a,
     .sigma_header-middle .navbar > .navbar-nav > .menu-item > a {
       transition: color .25s ease;
@@ -123,21 +243,25 @@
   <!-- Preloader End -->
 
    <!-- partial:partia/__mobile-nav.html -->
-  <aside class="sigma_aside sigma_aside-left">
+  <aside class="sigma_aside sigma_aside-left" id="mobile-nav">
 
-    <a class="navbar-brand" href="index.html"> <img width="208" height="60" src="assets/img/Logo-puja.png" alt="logo" loading="lazy"> </a>
+    <div class="sigma_aside-header">
+      <a class="navbar-brand" href="index.html"> <img width="160" height="46" src="assets/img/Logo-puja.png" alt="logo" loading="lazy"> </a>
+      <button class="sigma_aside-close" aria-label="Close navigation menu">
+        <i class="fal fa-times"></i>
+      </button>
+    </div>
 
     <!-- Menu -->
     <ul>
-          <li class="menu-item menu-item-has-children">
+          <li class="menu-item">
             <a href="index.html">Home</a>
           </li>
-          <li class="menu-item menu-item-has-children">
+          <li class="menu-item">
             <a href="about-us.html">About</a>
-           
           </li>
-          <li class="menu-item menu-item-has-children">
-            <a href="#">Puja Schedule</a>
+          <li class="menu-item">
+            <a href="#">Pujo Schedule</a>
             <ul class="sub-menu">
               <li class="menu-item"> <a href="panchami.html">Panchami</a> </li>
                <li class="menu-item"> <a href="shashti.html">Shashti</a> </li>             
@@ -150,11 +274,6 @@
           </li>
           <li class="menu-item">
             <a href="anudan.html">Anudan</a>
-             <!-- <ul class="sub-menu">
-             <li class="menu-item"> <a href="anudan.html">Anudan</a> </li>
-             <li class="menu-item"> <a href="volunteer.html">For a Volunteer</a> </li>
-            
-           </ul> -->
          </li>
           <li class="menu-item menu-item-has-children">
             <a href="#">Bhog Booking</a>
@@ -165,14 +284,12 @@
               <li class="menu-item"> <a href="lakshmi-puja.html">Lakshmi Puja</a> </li>
            </ul>
          </li>
-         <li class="menu-item menu-item-has-children">
+         <li class="menu-item">
             <a href="gallery.html">Gallery</a>
           </li>
-         <li class="menu-item menu-item-has-children">
+         <li class="menu-item">
           <a href="contact-us.html">Contact</a>
-         
        </li>
-      
     </ul>
 
   </aside>
@@ -225,7 +342,7 @@
               </li>
               <li class="menu-item"> <a href="about-us.html">About</a> </li>
               <li class="menu-item menu-item-has-children">
-                <a href="#">Puja Schedule</a>
+                <a href="#">Pujo Schedule</a>
                 <ul class="sub-menu">
                   <li class="menu-item"><a href="panchami.html">Panchami</a></li>
                   <li class="menu-item"> <a href="shashti.html">Shashti</a> </li>
@@ -322,7 +439,15 @@
           </div>
         </div>
 
-        <!-- Controls -->
+        <!-- Mobile controls: Hamburger + Volunteer button below (hidden on desktop) -->
+        <div class="sigma_mobile-controls">
+          <button class="aside-toggler aside-trigger-left" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <a class="sigma_btn-custom sigma_btn-donate sigma_mobile-volunteer" href="volunteer.html">Volunteer</a>
+        </div>
 
       </nav>
     </div>
@@ -333,51 +458,15 @@
   <!-- partial -->
 
   <!-- Banner Start -->
-  <div class="sigma_banner banner-3">
-
-    <div class="sigma_banner-slider">
-
-      <!-- Banner Item Start -->
-      <div class="light-bg sigma_banner-slider-inner bg-cover bg-center bg-norepeat" style="background-image: url('assets/img/banner/banner-4.webp');">
-        <div class="sigma_banner-text">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-lg-6">
-                <h1 class="title">Amader Barir Pujo 2026</h1>
-                <p class="blockquote mb-0 bg-transparent"> Experience the spirit of Durga Puja with devotion, culture, tradition, and togetherness. Join us in celebrating Maa Durga through vibrant festivities, cultural programs, dhunuchi dance, bhog distribution, and community bonding. </p>
-                <!-- <div class="section-button d-flex align-items-center">
-                  <a href="contact-us.html" class="sigma_btn-custom">Join Today <i class="far fa-arrow-right"></i> </a>
-                  <a href="services.html" class="ms-3 sigma_btn-custom white">View Services <i class="far fa-arrow-right"></i> </a>
-                </div> -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Banner Item End -->
-
-      <!-- Banner Item Start -->
-      <div class="light-bg sigma_banner-slider-inner bg-cover bg-center bg-norepeat" style="background-image: url('assets/img/banner/banner-5.webp');">
-        <div class="sigma_banner-text">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-lg-6">
-                <h1 class="title">Sharodiya Durga Puja</h1>
-                <p class="blockquote mb-0 bg-transparent"> Celebrate the divine arrival of Maa Durga with joy, devotion, and cultural heritage. From mesmerizing pandal decorations to soulful prayers and festive gatherings, Amader Bari Pujo brings the community together in the spirit of Shakti and celebration. </p>
-                <!-- <div class="section-button d-flex align-items-center">
-                  <a href="contact-us.html" class="sigma_btn-custom">Join Today <i class="far fa-arrow-right"></i> </a>
-                  <a href="services.html" class="ms-3 sigma_btn-custom white">View Services <i class="far fa-arrow-right"></i> </a>
-                </div> -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Banner Item End -->
-
-    </div>
-
-  </div>
+  <div class="sigma_banner-slider-inner"
+     style="
+        background-image: url('assets/img/puja/35.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center top;
+        height: 800px;
+     ">
+</div>  
   <!-- Banner End -->
 
   <!-- Holis Start -->
@@ -451,8 +540,14 @@
   <div class="section section-padding">
     <div class="container">
       <div class="section-title section-title-2 text-center wow fadeInUp" data-wow-duration="0.7s">
-        <p class="subtitle">Our Celebrations</p>
-        <h4 class="title">Experience The Spirit Of <br>Durga Puja</h4>
+        <h4 class="title">Experience The Spirit Of Durga Pujo</h4>
+        <p style="font-family: 'Fraunces', serif;
+          font-weight: 200;
+          font-style: italic;
+          font-size: 24px;
+          color: #6c757d;">
+    Free &amp; Open to Everyone
+</p>
       </div>
 
       <div class="row">
@@ -463,8 +558,8 @@
                <img src="assets/img/icons/woman.png" alt="puja" width="90" height="90" loading="lazy"> 
             </div>
             <div class="sigma_icon-block-content">
-              <h5> Cultural Programs </h5>
-              <p>Enjoy mesmerizing cultural evenings featuring dance performances, traditional Bengali music, drama, and community celebrations during the festive days of Durga Puja.</p>
+              <h5> Cultural Offerings</h5>
+              <p>We'd love for you to celebrate with us. Every song, every dance, and every performance is offered to Maa Durga with devotion, bringing our entire community together in joy.</p>
               <i class="far fa-arrow-right"></i>
             </div>
           </div>
@@ -475,9 +570,8 @@
             <img src="assets/img/icons/meal.png" alt="puja" width="70" height="70" loading="lazy">  
             </div>
             <div class="sigma_icon-block-content">
-              <h5>Prasad</h5>
-              <p>Join us for traditional Durga Puja bhog served with love and devotion.
-Experience togetherness, warmth, and the spirit of Bengali culture with the entire community.</p>
+              <h5>Bhog</h5>
+              <p>There's always a place for you at Maa's table. Join us for Prasad, served with love after being offered to Maa, and share in the warmth of our Pujo family.</p>
               <i class="far fa-arrow-right"></i>
             </div>
           </div>
@@ -488,9 +582,8 @@ Experience togetherness, warmth, and the spirit of Bengali culture with the enti
             <img src="assets/img/icons/lotus-1.png" alt="puja" width="70" height="70" loading="lazy">  
             </div>
             <div class="sigma_icon-block-content">
-              <h5> Sacred Puja Rituals </h5>
-              <p>Participate in the divine rituals of Bodhon, Pushpanjali, Sandhi Puja,
-and Sindoor Khela as we celebrate the arrival of Maa Durga with devotion and spirituality.</p>
+              <h5> Sacred Pujo Rituals</h5>
+              <p>Come stand before Maa, offer your prayers, and become part of rituals that fill every heart with hope, gratitude, and blessings.</p>
               <i class="far fa-arrow-right"></i>
             </div>
           </div>
@@ -501,9 +594,8 @@ and Sindoor Khela as we celebrate the arrival of Maa Durga with devotion and spi
              <img src="assets/img/icons/volunteer.png" alt="puja" width="70" height="70" loading="lazy"> 
             </div>
             <div class="sigma_icon-block-content">
-              <h5> Community & Volunteers </h5>
-              <p>Amader Bari Pujo is powered by passionate volunteers and community members
-who come together every year to preserve traditions and create unforgettable festive memories.</p>
+              <h5> Community & Volunteers</h5>
+              <p>Amader Barir Pujo has always been about people. Whether you're joining us for the first time or returning once again, you'll always find a family waiting to welcome you.</p>
               <i class="far fa-arrow-right"></i>
             </div>
           </div>
@@ -521,7 +613,7 @@ who come together every year to preserve traditions and create unforgettable fes
     <div class="container">
       <div class="section-title text-center wow fadeInUp" data-wow-duration="0.7s">
         
-        <h4 class="title">Puja Days</h4>
+        <h4 class="title">Pujo Days</h4>
       </div>
       <div class="row">
 
@@ -532,7 +624,7 @@ who come together every year to preserve traditions and create unforgettable fes
             </div>
             <div class="sigma_service-body">
               <h5>
-                <a href="donation.html">Mahalaya | 15 October</a>
+                <a href="donation.html">Mahalaya</a>
               </h5>
             </div>
           </div>
@@ -545,7 +637,7 @@ who come together every year to preserve traditions and create unforgettable fes
             </div>
             <div class="sigma_service-body">
               <h5>
-                <a href="donation.html">Maha Shashti | 16 October</a>
+                <a href="donation.html">Maha Shashti</a>
               </h5>  
             </div>
           </div>
@@ -558,7 +650,7 @@ who come together every year to preserve traditions and create unforgettable fes
             </div>
             <div class="sigma_service-body">
               <h5>
-                <a href="donation.html">Maha Saptami | 17 October</a>
+                <a href="donation.html">Maha Saptami</a>
               </h5>
               
             </div>
@@ -575,7 +667,7 @@ who come together every year to preserve traditions and create unforgettable fes
             </div>
             <div class="sigma_service-body">
               <h5>
-                <a href="donation.html">Maha Ashtami | 18 October</a>
+                <a href="donation.html">Maha Ashtami</a>
               </h5>
             </div>
           </div>
@@ -588,7 +680,7 @@ who come together every year to preserve traditions and create unforgettable fes
             </div>
             <div class="sigma_service-body">
               <h5>
-                <a href="donation.html">Maha Navami | 19 October</a>
+                <a href="donation.html">Maha Navami</a>
               </h5>  
             </div>
           </div>
@@ -601,7 +693,7 @@ who come together every year to preserve traditions and create unforgettable fes
             </div>
             <div class="sigma_service-body">
               <h5>
-                <a href="donation.html">Maha Dashami | 20 October</a>
+                <a href="donation.html">Maha Dashami</a>
               </h5>
               
             </div>
@@ -718,7 +810,7 @@ who come together every year to preserve traditions and create unforgettable fes
                     <i class="far fa-star"></i>
                   </div>
                 </div>
-                <p>A truly divine experience! The atmosphere during Durga Puja was magical, and the rituals were
+                <p>A truly divine experience! The atmosphere during Durga Pujo was magical, and the rituals were
                   performed beautifully. Can't wait for next year!</p>
               </div>
               <div class="sigma_testimonial-footer">
@@ -799,7 +891,7 @@ who come together every year to preserve traditions and create unforgettable fes
           <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12 footer-widget">
             <h5 class="widget-title">Information</h5>
             <ul>
-              <li> <a href="puja.html">Puja Schedule</a> </li>
+              <li> <a href="puja.html">Pujo Schedule</a> </li>
               <li> <a href="about-us.html">About Us</a> </li>
              
               <li> <a href="volunteer.html">Volunteers</a> </li>

@@ -57,14 +57,43 @@
   });
 
   $(".aside-trigger-left").on('click', function() {
-    $(".sigma_aside-left").toggleClass('open');
+    // Only the button toggles the aside — not handled here for the overlay div
+    // (overlay close is handled separately below)
+    if ($(this).is('button')) {
+      var isOpen = $(".sigma_aside-left").hasClass('open');
+      if (isOpen) {
+        closeAside();
+      } else {
+        openAside();
+      }
+    }
   });
+
+  // Close button inside the aside panel
+  $(document).on('click', '.sigma_aside-close', function() {
+    closeAside();
+  });
+
+  // Click outside (on the overlay) closes the aside
+  $(document).on('click', '.sigma_aside-overlay.aside-trigger-left', function() {
+    closeAside();
+  });
+
+  function openAside() {
+    $(".sigma_aside-left").addClass('open').attr('aria-hidden', 'false');
+    $("button.aside-toggler.aside-trigger-left").addClass('open').attr('aria-expanded', 'true');
+  }
+
+  function closeAside() {
+    $(".sigma_aside-left").removeClass('open').attr('aria-hidden', 'true');
+    $("button.aside-toggler.aside-trigger-left").removeClass('open').attr('aria-expanded', 'false');
+  }
 
   $(".sigma_aside .menu-item-has-children > a").on('click', function(e) {
     var submenu = $(this).next(".sub-menu");
     e.preventDefault();
-    // CSS-based slide (replaces jQuery .slideToggle) — .cssfx-slide + .is-open control max-height
     submenu.addClass('cssfx-slide').toggleClass('is-open');
+    $(this).toggleClass('submenu-open');
   });
 
   /*-------------------------------------------------------------------------------
@@ -468,7 +497,7 @@
   $(function() {
     $('.sigma_aside-left').attr('aria-hidden', 'true');
     $('.sigma_aside-right-panel').attr('aria-hidden', 'true');
-    $('.aside-trigger-left').attr({'role': 'button', 'aria-expanded': 'false', 'aria-label': 'Open navigation menu'});
+    $('button.aside-toggler.aside-trigger-left').attr({'role': 'button', 'aria-expanded': 'false', 'aria-label': 'Open navigation menu'});
     $('.aside-trigger-right').attr({'role': 'button', 'aria-expanded': 'false', 'aria-label': 'Open sidebar'});
   });
 
@@ -477,7 +506,7 @@
     setTimeout(function() {
       var open = $('.sigma_aside-left').hasClass('open');
       $('.sigma_aside-left').attr('aria-hidden', open ? 'false' : 'true');
-      $('.aside-trigger-left').attr('aria-expanded', String(open));
+      $('button.aside-toggler.aside-trigger-left').attr('aria-expanded', String(open));
     }, 10);
   });
 
@@ -493,8 +522,7 @@
   $(document).on('keydown', function(e) {
     if (e.key === 'Escape') {
       if ($('.sigma_aside-left').hasClass('open')) {
-        $('.sigma_aside-left').removeClass('open').attr('aria-hidden', 'true');
-        $('.aside-trigger-left').attr('aria-expanded', 'false');
+        closeAside();
       }
       if ($('.sigma_aside-right-panel').hasClass('open')) {
         $('.sigma_aside-right-panel').removeClass('open').attr('aria-hidden', 'true');

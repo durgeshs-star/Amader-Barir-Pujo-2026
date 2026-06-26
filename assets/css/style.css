@@ -1846,6 +1846,11 @@ blockquote::before{
   font-size: 16px;
 }
 
+.section-title h4 {
+  white-space: nowrap;
+  font-size: 7rem;
+}
+
 .section-title .title {
     position: relative;
     margin: 0;
@@ -3986,12 +3991,17 @@ table img {
     line-height: 1.7;
     margin-left: auto;
     font-size: 10px;
+    transition: transform 0.3s ease;
 }
 .navbar-nav .menu-item-has-children>a::after{
   margin-left: 10px;
 }
 .navbar-nav .sub-menu .menu-item-has-children>a::after{
   content: "\f054";
+}
+/* Rotate the + arrow when sub-menu is open in the aside */
+.sigma_aside ul .menu-item.menu-item-has-children > a.submenu-open::after {
+  content: "\f068";
 }
 
 .sigma_aside ul .menu-item .sub-menu {
@@ -10320,7 +10330,7 @@ animation-play-state: paused;
   content: "";
   position: absolute;
   inset: 0;
-  /* background: linear-gradient(90deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,.1) 100%); */
+  background: linear-gradient(to right, rgba(0,0,0,.55) 0%, rgba(0,0,0,.30) 50%, rgba(0,0,0,.05) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -10329,14 +10339,34 @@ animation-play-state: paused;
   z-index: 2;
 }
 .sigma_banner-text,
-.sigma_banner-text * {
+.sigma_banner-text p,
+.sigma_banner-text span {
     text-shadow: none !important;
 }
+/* Title keeps its own text-shadow defined below */
+/* Desktop: keep the original dark-red heading, paragraph dark */
 .sigma_banner .title {
-  text-shadow: 0 2px 12px rgba(0,0,0,.45);
+  color: #630909;
+  text-shadow: 0 1px 4px rgba(255,255,255,.4);
 }
 .sigma_banner p {
+  color: #fff;
   text-shadow: 0 1px 6px rgba(0,0,0,.55);
+}
+/* Mobile: full-width image behind text — force white so it's always readable */
+@media (max-width: 991px) {
+  .sigma_banner .title {
+    color: #fff !important;
+    text-shadow: 0 2px 12px rgba(0,0,0,.7) !important;
+  }
+  .sigma_banner p {
+    color: #fff !important;
+    text-shadow: 0 1px 8px rgba(0,0,0,.7) !important;
+  }
+  /* Stronger overlay on mobile so text pops */
+  .sigma_banner .sigma_banner-slider-inner::before {
+    background: linear-gradient(to bottom, rgba(0,0,0,.65) 0%, rgba(0,0,0,.45) 60%, rgba(0,0,0,.25) 100%);
+  }
 }
 
 /* ---- Form error/success states (Batch-2 #6) ---- */
@@ -10429,6 +10459,10 @@ button:active {
 }
 .cssfx-slide.is-open {
   max-height: 1500px;
+}
+/* Override display:none on aside sub-menus once the slide class is attached */
+.sigma_aside ul .menu-item .sub-menu.cssfx-slide {
+  display: block;
 }
 .cssfx-scroll-smooth {
   scroll-behavior: smooth;

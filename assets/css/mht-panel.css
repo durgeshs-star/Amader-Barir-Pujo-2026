@@ -285,3 +285,15 @@
   .mht-whatsapp-btn { animation: none; }
 }
 
+@media (max-width: 991px) {
+  .mht-whatsapp-btn {
+    bottom: 30px;
+    left: 16px;
+    width: 48px;
+    height: 48px;
+  }
+  .mht-whatsapp-btn i {
+    font-size: 24px;
+  }
+}
+
