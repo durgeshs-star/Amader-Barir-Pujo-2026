@@ -41,6 +41,218 @@
   <link id="mht-color-link" class="color-changing" href="assets/css/theme-colors/color1.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/mht-panel.css">
   <link rel="stylesheet" href="assets/css/mht-v13.css">
+  <link rel="stylesheet" href="assets/css/mht-panel.css">
+  <link rel="stylesheet" href="assets/css/mht-v13.css">
+
+  <style>
+    .bhog-booking {
+      margin-top: 36px;
+      padding: 28px;
+      border: 1px solid rgba(126, 69, 85, 0.14);
+      border-radius: 8px;
+      background: linear-gradient(135deg, #fff 0%, #fff8f0 100%);
+      box-shadow: 0 14px 38px rgba(0, 0, 0, 0.08);
+    }
+
+    .bhog-booking__header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .bhog-booking__header h4 {
+      margin-bottom: 8px;
+      color: #7E4555;
+    }
+
+    .bhog-booking__header p {
+      margin-bottom: 0;
+    }
+
+    .bhog-booking__price {
+      min-width: 130px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      background-color: #7E4555;
+      color: #fff;
+      text-align: center;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .bhog-booking__price span {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .bhog-booking__note {
+      margin: -6px 0 20px;
+      padding: 12px 14px;
+      border-left: 4px solid #d89b4c;
+      border-radius: 8px;
+      background-color: rgba(216, 155, 76, 0.12);
+      color: #4a3a30;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .bhog-booking__grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .bhog-booking__card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px;
+      border: 1px solid rgba(126, 69, 85, 0.12);
+      border-radius: 8px;
+      background-color: #fff;
+    }
+
+    .bhog-booking__card h5 {
+      margin-bottom: 4px;
+      font-size: 18px;
+      color: #2f2f2f;
+    }
+
+    .bhog-booking__card p {
+      margin-bottom: 0;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .bhog-counter {
+      display: inline-flex;
+      align-items: center;
+      flex: 0 0 auto;
+      border: 1px solid rgba(126, 69, 85, 0.2);
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #fff;
+    }
+
+    .bhog-counter button {
+      width: 42px;
+      height: 42px;
+      border: 0;
+      background-color: #f8eee5;
+      color: #7E4555;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .bhog-counter button:hover,
+    .bhog-counter button:focus {
+      background-color: #7E4555;
+      color: #fff;
+      outline: none;
+    }
+
+    .bhog-counter button:disabled {
+      cursor: not-allowed;
+      opacity: 0.45;
+    }
+
+    .bhog-counter input {
+      width: 48px;
+      height: 42px;
+      border: 0;
+      color: #2f2f2f;
+      font-weight: 700;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .bhog-booking__summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(126, 69, 85, 0.14);
+    }
+
+    .bhog-booking__total {
+      margin-bottom: 0;
+      color: #2f2f2f;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .bhog-booking__total span {
+      color: #7E4555;
+      font-size: 26px;
+    }
+
+    .bhog-booking__meta {
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+
+    .bhog-booking__disclaimer {
+      margin: 18px 0 0;
+      padding: 12px 14px;
+      border-radius: 8px;
+      background-color: rgba(126, 69, 85, 0.08);
+      color: #4a3a30;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .bhog-booking__pay {
+      min-width: 150px;
+      border: 0;
+    }
+
+    .bhog-booking__pay:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+
+    @media (max-width: 991px) {
+      .bhog-booking__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .bhog-booking {
+        padding: 20px;
+      }
+
+      .bhog-booking__header,
+      .bhog-booking__card,
+      .bhog-booking__summary {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .bhog-booking__price,
+      .bhog-booking__pay {
+        width: 100%;
+      }
+
+      .bhog-counter {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .bhog-counter input {
+        flex: 1;
+      }
+    }
+  </style>
 
 
   <!-- partial -->
@@ -286,36 +498,77 @@
     </div>
 
   </div>
-  <!-- partial -->
-
+ 
   <div class="section">
     <div class="container">
 
       <div class="entry-content">
-       <p>Join us in celebrating Durga Puja through the sacred tradition of Bhog. <strong>Saptami, Ashtami, Navami</strong> three days of soulful offerings, shared with love. First <strong>400 bookings</strong> get <strong>20% off</strong>! Book your <strong> Bhog at  &#8377; 250/- </strong> per person per day. Book your Bhog through <a href="https://www.abp.proplusdatafoundation.com" target="_blank" rel="noopener noreferrer">www.abp.proplusdatafoundation.com</a> till <strong 20<sup>th</sup> October.</strong></p>
-       
-        <div class="section">
-          <div class="row align-items-center">
-            <div class="col-lg-6">
-              <div class="sigma_canvas pt-0">
-                <img width="570" height="400" src="assets/img/navami.jpg" alt="post" loading="lazy">
+       <p>Join us in celebrating Durga Puja through the sacred tradition of Bhog. <strong>Saptami, Ashtami, Navami</strong> three days of soulful offerings, shared with love. First <strong>400 bookings</strong> get <strong>20% off</strong>! Book your <strong> Bhog at  &#8377; 200/- </strong> per person per day. Book your Bhog through <a href="https://www.abp.proplusdatafoundation.com" target="_blank" rel="noopener noreferrer">www.abp.proplusdatafoundation.com</a> till <strong>20<sup>th</sup> October.</strong></p>
+
+        <section class="bhog-booking" aria-labelledby="navamiBhogBookingTitle">
+
+          <p class="bhog-booking__note">You can book up to 10 adults, 2 children (0–5 years), 5 children (5+ years), and 10 senior citizens.</p>
+
+          <div class="bhog-booking__grid">
+            <div class="bhog-booking__card">
+              <div>
+                <h5>Adult Booking</h5>
+                <p>&#8377;200 per person</p>
+              </div>
+              <div class="bhog-counter" data-price="200" data-max="10">
+                <button type="button" class="bhog-counter__minus" aria-label="Reduce adult booking">-</button>
+                <input type="text" value="0" readonly aria-label="Adult booking count">
+                <button type="button" class="bhog-counter__plus" aria-label="Add adult booking">+</button>
               </div>
             </div>
-            <div class="col-lg-6">
-              <div class="me-lg-30">
-                <div class="section-title mb-0 text-start wow fadeInUp" data-wow-duration="0.7s">
-                  <p class="subtitle">Bhog Menu (2025)</p>
-                  <h4 class="title">Navami (20<sup>th</sup> Oct.)</h4>
-                  <p>Jhuri Aloo Bhaja <br> Basanti Pulao <br> Dam Aloo <br> Chatni (Tomato, Khejur, Kaju, Kismis)<br> Payesh <br> Rasogolla</p>
-                </div>
-               
+
+            <div class="bhog-booking__card">
+              <div>
+                <h5>Children aged 0 to 5</h5>
+                <p>Free of cost</p>
+              </div>
+              <div class="bhog-counter" data-price="0" data-max="2">
+                <button type="button" class="bhog-counter__minus" aria-label="Reduce Children aged 0 to 5 booking">-</button>
+                <input type="text" value="0" readonly aria-label="Children aged 0 to 5 booking count">
+                <button type="button" class="bhog-counter__plus" aria-label="Add Children aged 0 to 5 booking">+</button>
+              </div>
+            </div>
+
+            <div class="bhog-booking__card">
+              <div>
+                <h5>Children aged 5 and Above</h5>
+                <p>&#8377;200 per child</p>
+              </div>
+              <div class="bhog-counter" data-price="200" data-max="5">
+                <button type="button" class="bhog-counter__minus" aria-label="Reduce Children aged 5 and Above booking">-</button>
+                <input type="text" value="0" readonly aria-label="Children aged 5 and Above booking count">
+                <button type="button" class="bhog-counter__plus" aria-label="Add Children aged 5 and Above booking">+</button>
+              </div>
+            </div>
+
+            <div class="bhog-booking__card">
+              <div>
+                <h5>Senior Citizens</h5>
+                <p>&#8377;100 per person</p>
+              </div>
+              <div class="bhog-counter" data-price="100" data-max="10">
+                <button type="button" class="bhog-counter__minus" aria-label="Reduce senior citizen booking">-</button>
+                <input type="text" value="0" readonly aria-label="Senior citizen booking count">
+                <button type="button" class="bhog-counter__plus" aria-label="Add senior citizen booking">+</button>
               </div>
             </div>
           </div>
-        </div>
-        <h4 class="title">Flea Market Bonanza</h4>
-       <p>Explore handcrafted art, decor, and treasures from local creators. Shop, snack, and soak in the spirit of Bangaliana with every step. </p>
-      
+
+          <p class="bhog-booking__disclaimer">ID card verification is mandatory for children aged 0 to 5 years and senior citizens.</p>
+
+          <div class="bhog-booking__summary">
+            <div>
+              <p class="bhog-booking__total">Total: <span id="bhogTotalAmount">&#8377;0</span></p>
+              <p class="bhog-booking__meta"><span id="bhogTotalBookings">0</span> <span id="bhogBookingLabel">bookings selected</span></p>
+            </div>
+            <button type="button" id="bhogPayNow" class="sigma_btn-custom bhog-booking__pay" disabled>Pay Now</button>
+          </div>
+        </section>
         
        
       
